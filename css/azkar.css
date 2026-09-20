@@ -1,0 +1,958 @@
+/* =========================================
+                ROOT
+========================================= */
+
+:root {
+
+    /* Brand Colors */
+
+    --dar-primary: #123F5D;
+    --dar-primary-dark: #092B40;
+    --dar-primary-light: #1B587D;
+
+    --dar-gold: #C5A15B;
+    --dar-gold-dark: #A9823E;
+    --dar-gold-light: #DCC58F;
+
+    --dar-cream: #F8F5EC;
+    --dar-white: #FFFFFF;
+
+    --dar-text: #263238;
+
+    --dar-border: rgba(255,255,255,.20);
+
+    --dar-transition: all .35s ease;
+}
+
+
+/* =========================================
+                GENERAL
+========================================= */
+
+* {
+
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+}
+
+
+body {
+
+    font-family: "Cairo", sans-serif;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f8f5ec 0%,
+            #f4efe2 100%
+        );
+
+    color: var(--dar-text);
+
+    min-height: 100vh;
+
+}
+
+
+a {
+
+    text-decoration: none;
+
+}
+
+
+button {
+
+    font-family: inherit;
+
+}
+
+
+
+/* =========================================
+                HEADER
+========================================= */
+
+.main-header {
+
+    background: var(--dar-primary);
+
+    padding: 14px 0;
+
+    box-shadow:
+        0 4px 15px rgba(9,43,64,.12);
+
+}
+
+
+.header-content {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+}
+
+
+.logo {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    color: var(--dar-white);
+
+    font-size: 21px;
+
+    font-weight: 700;
+
+}
+
+
+.logo:hover {
+
+    color: var(--dar-white);
+
+}
+
+
+.logo-icon {
+
+    width: 40px;
+
+    height: 40px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: var(--dar-gold);
+
+    border: 1px solid rgba(197,161,91,.5);
+
+}
+
+
+.header-actions {
+
+    display: flex;
+
+    gap: 8px;
+
+}
+
+
+.icon-btn {
+
+    width: 38px;
+
+    height: 38px;
+
+    border: 1px solid rgba(255,255,255,.18);
+
+    border-radius: 50%;
+
+    background: transparent;
+
+    color: var(--dar-white);
+
+    transition: var(--dar-transition);
+
+}
+
+
+.icon-btn:hover {
+
+    background: var(--dar-gold);
+
+    color: var(--dar-primary-dark);
+
+    transform: translateY(-2px);
+
+}
+
+
+
+/* =========================================
+                PAGE HEADING
+========================================= */
+
+.page-heading {
+
+    padding: 45px 0 30px;
+
+}
+
+
+.heading-content {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    text-align: right;
+
+}
+
+
+.heading-icon {
+
+    width: 58px;
+
+    height: 58px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: var(--dar-primary);
+
+    color: var(--dar-gold);
+
+    font-size: 24px;
+
+    box-shadow:
+        0 8px 20px rgba(18,63,93,.18);
+
+}
+
+
+.heading-content h1 {
+
+    margin: 0;
+
+    color: var(--dar-primary-dark);
+
+    font-size: 30px;
+
+    font-weight: 700;
+
+}
+
+
+.heading-content p {
+
+    margin: 4px 0 0;
+
+    color: #78848a;
+
+    font-size: 14px;
+
+}
+
+
+
+/* =========================================
+                AZKAR SECTION
+========================================= */
+
+.azkar-section {
+
+    padding-bottom: 50px;
+
+}
+
+
+.azkar-card {
+
+    max-width: 850px;
+
+    margin: auto;
+
+    padding: 14px;
+
+    background: var(--dar-white);
+
+    border-radius:  25px 25px;
+
+    box-shadow:
+        0 15px 40px rgba(9,43,64,.10);
+
+}
+
+
+/* =========================================
+                CATEGORY ITEM
+========================================= */
+
+.categories-list {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+}
+
+
+.category-item {
+
+    width: 100%;
+
+    border: none;
+
+    background: #fafafa;
+
+    border-radius: 12px;
+
+    padding: 12px 14px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    cursor: pointer;
+
+    transition: var(--dar-transition);
+
+    text-align: right;
+
+}
+
+
+.category-item:hover {
+
+    background: #f1f6f8;
+
+    transform: translateX(-4px);
+
+    box-shadow:
+        0 5px 15px rgba(18,63,93,.08);
+
+}
+
+
+.category-number {
+
+    flex-shrink: 0;
+
+    width: 38px;
+
+    height: 38px;
+
+    border-radius: 50%;
+
+    border: 2px solid var(--dar-gold);
+
+    color: var(--dar-primary);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    background: var(--dar-white);
+
+}
+
+
+.category-icon {
+
+    width: 42px;
+
+    height: 42px;
+
+    border-radius: 10px;
+
+    background: rgba(18,63,93,.07);
+
+    color: var(--dar-primary);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 17px;
+
+    flex-shrink: 0;
+
+}
+
+
+.category-content {
+
+    flex: 1;
+
+}
+
+
+.category-title {
+
+    color: var(--dar-primary-dark);
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    margin-bottom: 2px;
+
+}
+
+
+.category-subtitle {
+
+    color: #9aa2a5;
+
+    font-size: 11px;
+
+}
+
+
+.category-arrow {
+
+    color: var(--dar-gold);
+
+    font-size: 14px;
+
+}
+
+
+
+/* =========================================
+                LOADING
+========================================= */
+
+.loading-state {
+
+    min-height: 300px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: var(--dar-primary);
+
+}
+
+
+.loading-state .spinner-border {
+
+    width: 35px;
+
+    height: 35px;
+
+    border-width: 3px;
+
+}
+
+
+.loading-state p {
+
+    margin-top: 15px;
+
+    font-size: 14px;
+
+}
+
+
+
+/* =========================================
+                ERROR
+========================================= */
+
+.error-state {
+
+    text-align: center;
+
+    padding: 50px 20px;
+
+}
+
+
+.error-icon {
+
+    font-size: 40px;
+
+    color: var(--dar-gold);
+
+    margin-bottom: 15px;
+
+}
+
+
+.error-state h3 {
+
+    color: var(--dar-primary-dark);
+
+    font-size: 20px;
+
+}
+
+
+.error-state p {
+
+    color: #777;
+
+    font-size: 14px;
+
+}
+
+
+.retry-btn {
+
+    background: var(--dar-primary);
+
+    color: white;
+
+    border-radius: 8px;
+
+    padding: 9px 20px;
+
+}
+
+
+.retry-btn:hover {
+
+    background: var(--dar-primary-dark);
+
+    color: white;
+
+}
+
+
+
+/* =========================================
+                MODAL
+========================================= */
+
+.modal-content {
+
+    border: none;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+}
+
+
+.modal-header {
+
+    background: var(--dar-primary);
+
+    color: white;
+
+    border: none;
+
+    padding: 18px 22px;
+
+}
+
+
+.modal-title-wrapper {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+}
+
+
+.modal-title {
+
+    font-size: 18px;
+
+    font-weight: 700;
+
+}
+
+
+.modal-icon {
+
+    width: 40px;
+
+    height: 40px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: rgba(197,161,91,.15);
+
+    color: var(--dar-gold);
+
+}
+
+
+.modal-header .btn-close {
+
+    filter: brightness(0) invert(1);
+
+    margin: 0;
+
+}
+
+
+.modal-body {
+
+    background: var(--dar-cream);
+
+    padding: 20px;
+
+    max-height: 65vh;
+
+    overflow-y: auto;
+
+}
+
+
+
+/* =========================================
+                ZEKR
+========================================= */
+
+.azkar-items {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 14px;
+
+}
+
+
+.zekr-item {
+
+    background: var(--dar-white);
+
+    border-radius: 14px;
+
+    padding: 20px;
+
+    border-right: 4px solid var(--dar-gold);
+
+    box-shadow:
+        0 4px 12px rgba(9,43,64,.06);
+
+}
+
+
+.zekr-text {
+
+    color: var(--dar-primary-dark);
+
+    font-size: 18px;
+
+    line-height: 2.1;
+
+    margin-bottom: 15px;
+
+}
+
+
+.zekr-footer {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 10px;
+
+    padding-top: 12px;
+
+    border-top: 1px solid #eee;
+
+}
+
+
+.zekr-source {
+
+    color: #8b9295;
+
+    font-size: 12px;
+
+}
+
+
+.zekr-count {
+
+    background: rgba(197,161,91,.14);
+
+    color: var(--dar-gold-dark);
+
+    padding: 5px 10px;
+
+    border-radius: 20px;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+}
+
+
+
+/* =========================================
+                FOOTER
+========================================= */
+
+.main-footer {
+
+    background: var(--dar-primary-dark);
+
+    padding: 18px 0;
+
+    text-align: center;
+
+    color: #d7e0e4;
+
+}
+
+
+.main-footer p {
+
+    margin: 0;
+
+    font-size: 13px;
+
+}
+
+
+.main-footer i {
+
+    color: var(--dar-gold);
+
+    margin-left: 5px;
+
+}
+
+
+
+/* =========================================
+                RESPONSIVE
+========================================= */
+
+@media (max-width: 576px) {
+
+    .page-heading {
+
+        padding: 30px 0 20px;
+
+    }
+
+
+    .heading-icon {
+
+        width: 48px;
+
+        height: 48px;
+
+        font-size: 19px;
+
+    }
+
+
+    .heading-content h1 {
+
+        font-size: 24px;
+
+    }
+
+
+    .heading-content p {
+
+        font-size: 11px;
+
+    }
+
+
+    .azkar-card {
+
+        padding: 9px;
+
+        border-radius: 0 0 18px 18px;
+
+    }
+
+
+    .category-item {
+
+        padding: 10px;
+
+        gap: 9px;
+
+    }
+
+
+    .category-number {
+
+        width: 34px;
+
+        height: 34px;
+
+        font-size: 12px;
+
+    }
+
+
+    .category-icon {
+
+        width: 37px;
+
+        height: 37px;
+
+        font-size: 14px;
+
+    }
+
+
+    .category-title {
+
+        font-size: 14px;
+
+    }
+
+
+    .category-subtitle {
+
+        font-size: 9px;
+
+    }
+
+
+    .category-arrow {
+
+        font-size: 11px;
+
+    }
+
+
+    .zekr-text {
+
+        font-size: 16px;
+
+        line-height: 2;
+
+    }
+
+
+    .modal-body {
+
+        padding: 12px;
+
+    }
+
+}
+/* =========================================
+            ZEKR NUMBER
+========================================= */
+
+.zekr-number {
+
+    width: 32px;
+
+    height: 32px;
+
+    border-radius: 50%;
+
+    background: var(--dar-primary);
+
+    color: var(--dar-white);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    margin-bottom: 12px;
+}
+
+
+/* =========================================
+            ZEKR BLESS
+========================================= */
+
+.zekr-bless {
+
+    margin-top: 15px;
+
+    padding: 12px;
+
+    background: rgba(197,161,91,.08);
+
+    border-radius: 10px;
+
+    color: var(--dar-gold-dark);
+
+    font-size: 13px;
+
+    line-height: 1.8;
+}
+
+
+.zekr-bless i {
+
+    margin-left: 5px;
+
+    color: var(--dar-gold);
+
+}
+
+
+/* =========================================
+            ZEKR SOURCE
+========================================= */
+
+.zekr-source {
+
+    color: #8b9295;
+
+    font-size: 12px;
+}
+
+
+.zekr-source i {
+
+    margin-left: 4px;
+
+    color: var(--dar-primary);
+}
+.dar-hero{
+    background-image: url(../images/azkar.jpg);
+}
