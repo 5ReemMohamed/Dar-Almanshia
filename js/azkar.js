@@ -1,14 +1,7 @@
-/* =========================================
-                API
-========================================= */
-
 const API_URL =
     "https://api.bonyanoss.org/azkar";
 
 
-/* =========================================
-                ELEMENTS
-========================================= */
 
 const categoriesContainer =
     document.getElementById("categoriesContainer");
@@ -32,17 +25,11 @@ const modalTitle =
     document.getElementById("modalTitle");
 
 
-/* =========================================
-                DATA
-========================================= */
-
+ 
 let allCategories = [];
 
 
-/* =========================================
-                ICONS
-========================================= */
-
+ 
 const categoryIcons = [
 
     "fa-sun",
@@ -61,17 +48,11 @@ const categoryIcons = [
 ];
 
 
-/* =========================================
-        STATIC AZKAR
-========================================= */
-
+ 
 const staticAzkar = {
 
 
-    /* =====================================
-                أذكار الطعام
-    ===================================== */
-
+  
     "الطعام": [
 
         {
@@ -103,10 +84,7 @@ const staticAzkar = {
     ],
 
 
-    /* =====================================
-                أذكار السفر
-    ===================================== */
-
+  
     "السفر": [
 
         {
@@ -144,10 +122,7 @@ const staticAzkar = {
     ],
 
 
-    /* =====================================
-                أذكار الاستيقاظ
-    ===================================== */
-
+ 
     "الاستيقاظ": [
 
         {
@@ -388,11 +363,7 @@ const staticAzkar = {
     }
 
 ],
-
-    /* =====================================
-                    تسابيح
-    ===================================== */
-
+ 
     "تسابيح": [
 
         {
@@ -614,10 +585,7 @@ const staticAzkar = {
 },
 
 ],
-    /* =====================================
-                أدعية قرآنية
-    ===================================== */
-
+  
     "أدعية قرآنية": [
 
         {
@@ -703,10 +671,7 @@ const staticAzkar = {
     ],
 
 
-    /* =====================================
-                أدعية الأنبياء
-    ===================================== */
-
+   
     "أدعية الأنبياء": [
 
         {
@@ -1035,9 +1000,7 @@ const staticAzkar = {
 };
 
 
-/* =========================================
-        STATIC CATEGORY KEYS
-========================================= */
+ 
 
 const staticCategoryKeys = {
 
@@ -1110,9 +1073,7 @@ const staticCategoryKeys = {
 };
 
 
-/* =========================================
-        NORMALIZE TITLE
-========================================= */
+ 
 
 function normalizeTitle(title) {
 
@@ -1123,16 +1084,10 @@ function normalizeTitle(title) {
 }
 
 
-/* =========================================
-        EXTRACT CATEGORIES
-========================================= */
-
+ 
 function extractCategories(result) {
 
-    /* ==============================
-            Response Array
-    ============================== */
-
+ 
     if (Array.isArray(result)) {
 
         return result;
@@ -1140,10 +1095,7 @@ function extractCategories(result) {
     }
 
 
-    /* ==============================
-            result.data Array
-    ============================== */
-
+  
     if (
         result &&
         Array.isArray(result.data)
@@ -1154,10 +1106,7 @@ function extractCategories(result) {
     }
 
 
-    /* ==============================
-            result.data Object
-    ============================== */
-
+  
     if (
         result &&
         result.data &&
@@ -1183,10 +1132,7 @@ function extractCategories(result) {
     }
 
 
-    /* ==============================
-            Search Root Object
-    ============================== */
-
+   
     if (
         result &&
         typeof result === "object"
@@ -1216,10 +1162,7 @@ function extractCategories(result) {
 }
 
 
-/* =========================================
-                LOAD CATEGORIES
-========================================= */
-
+ 
 async function loadCategories() {
 
     showLoading();
@@ -1298,9 +1241,6 @@ async function loadCategories() {
 }
 
 
-/* =========================================
-                RENDER CATEGORIES
-========================================= */
 
 function renderCategories(
     categories
@@ -1309,10 +1249,7 @@ function renderCategories(
     categoriesContainer.innerHTML = "";
 
 
-    /* =====================================
-            API CATEGORY MAP
-    ===================================== */
-
+   
     const categoryMap = {
 
         "الصباح":
@@ -1360,10 +1297,7 @@ function renderCategories(
                 "category-item";
 
 
-            /* =================================
-                    TITLE
-            ================================= */
-
+           
             const title =
                 category?.name ||
                 category?.title ||
@@ -1377,10 +1311,7 @@ function renderCategories(
                 );
 
 
-            /* =================================
-                    API KEY
-            ================================= */
-
+           
             let apiKey =
                 category?.apiKey ||
                 category?.slug ||
@@ -1397,20 +1328,14 @@ function renderCategories(
             }
 
 
-            /* =================================
-                    STATIC KEY
-            ================================= */
-
+           
             const staticKey =
                 staticCategoryKeys[
                     cleanTitle
                 ];
 
 
-            /* =================================
-                    ICON
-            ================================= */
-
+            
             const icon =
                 categoryIcons[
                     index %
@@ -1418,10 +1343,7 @@ function renderCategories(
                 ];
 
 
-            /* =================================
-                    HTML
-            ================================= */
-
+          
             item.innerHTML = `
 
                 <div class="category-number">
@@ -1465,10 +1387,7 @@ function renderCategories(
             `;
 
 
-            /* =================================
-                    CLICK
-            ================================= */
-
+          
             item.addEventListener(
                 "click",
                 () => {
@@ -1485,10 +1404,7 @@ function renderCategories(
                     );
 
 
-                    /* =============================
-                            STATIC CATEGORY
-                    ============================= */
-
+                    
                     if (staticKey) {
 
                         openStaticCategory(
@@ -1501,10 +1417,7 @@ function renderCategories(
                     }
 
 
-                    /* =============================
-                            API CATEGORY
-                    ============================= */
-
+                    
                     if (!apiKey) {
 
                         showUnavailable(
@@ -1539,17 +1452,11 @@ function renderCategories(
 }
 
 
-/* =========================================
-        EXTRACT AZKAR ITEMS
-========================================= */
-
+ 
 function extractAzkarItems(result) {
 
 
-    /* =====================================
-            RESPONSE IS ARRAY
-    ===================================== */
-
+  
     if (
         Array.isArray(result)
     ) {
@@ -1558,21 +1465,14 @@ function extractAzkarItems(result) {
 
     }
 
-
-    /* =====================================
-            DATA
-    ===================================== */
-
+ 
     if (
         result &&
         result.data
     ) {
 
 
-        /* ==============================
-                data Array
-        ============================== */
-
+         
         if (
             Array.isArray(
                 result.data
@@ -1584,10 +1484,7 @@ function extractAzkarItems(result) {
         }
 
 
-        /* ==============================
-                data.content
-        ============================== */
-
+        
         if (
             Array.isArray(
                 result.data.content
@@ -1599,10 +1496,7 @@ function extractAzkarItems(result) {
         }
 
 
-        /* ==============================
-                data.azkar
-        ============================== */
-
+       
         if (
             Array.isArray(
                 result.data.azkar
@@ -1614,10 +1508,7 @@ function extractAzkarItems(result) {
         }
 
 
-        /* ==============================
-                data.items
-        ============================== */
-
+        
         if (
             Array.isArray(
                 result.data.items
@@ -1629,10 +1520,7 @@ function extractAzkarItems(result) {
         }
 
 
-        /* ==============================
-                data.data
-        ============================== */
-
+      
         if (
             Array.isArray(
                 result.data.data
@@ -1644,10 +1532,7 @@ function extractAzkarItems(result) {
         }
 
 
-        /* ==============================
-                SEARCH INSIDE DATA
-        ============================== */
-
+       
         for (
             const key of Object.keys(
                 result.data
@@ -1694,10 +1579,7 @@ function extractAzkarItems(result) {
     }
 
 
-    /* =====================================
-            SEARCH ROOT OBJECT
-    ===================================== */
-
+   
     if (
         result &&
         typeof result === "object"
@@ -1753,11 +1635,7 @@ function extractAzkarItems(result) {
 
 }
 
-
-/* =========================================
-        OPEN STATIC CATEGORY
-========================================= */
-
+ 
 function openStaticCategory(
     title,
     staticKey
@@ -1832,16 +1710,7 @@ function openStaticCategory(
 
 }
 
-
-/* =========================================
-                OPEN API CATEGORY
-========================================= */
-
-
-/* =========================================
-                OPEN API CATEGORY
-========================================= */
-
+ 
 async function openCategory(
     category,
     title
@@ -1849,10 +1718,7 @@ async function openCategory(
 
     try {
 
-        /* =================================
-                GET API KEY
-        ================================= */
-
+      
         const apiKey =
             typeof category === "string"
 
@@ -1878,11 +1744,7 @@ async function openCategory(
             apiKey
         );
 
-
-        /* =================================
-                FETCH
-        ================================= */
-
+ 
         const response =
             await fetch(
                 `${API_URL}/${encodeURIComponent(apiKey)}`
@@ -1898,10 +1760,7 @@ async function openCategory(
         }
 
 
-        /* =================================
-                JSON
-        ================================= */
-
+        
         const result =
             await response.json();
 
@@ -1912,10 +1771,7 @@ async function openCategory(
         );
 
 
-        /* =================================
-                EXTRACT AZKAR
-        ================================= */
-
+        
         const items =
             extractAzkarItems(
                 result
@@ -1928,10 +1784,7 @@ async function openCategory(
         );
 
 
-        /* =================================
-                CHECK
-        ================================= */
-
+       
         if (
             !Array.isArray(items) ||
             items.length === 0
@@ -1944,20 +1797,14 @@ async function openCategory(
         }
 
 
-        /* =================================
-                RENDER AZKAR
-        ================================= */
-
+       
         renderAzkar(
             items,
             title
         );
 
 
-        /* =================================
-                SHOW MODAL
-        ================================= */
-
+       
         const modalElement =
             document.getElementById(
                 "azkarModal"
@@ -1999,11 +1846,7 @@ async function openCategory(
 }
 
 
-
-/* =========================================
-                RENDER AZKAR
-========================================= */
-
+ 
 function renderAzkar(
     items,
     title
@@ -2017,10 +1860,7 @@ function renderAzkar(
         "";
 
 
-    /* =====================================
-            CHECK ARRAY
-    ===================================== */
-
+  
     if (
         !Array.isArray(items) ||
         items.length === 0
@@ -2035,10 +1875,7 @@ function renderAzkar(
     }
 
 
-    /* =====================================
-            FILTER VALID ITEMS
-    ===================================== */
-
+   
     const validAzkar =
         items.filter(
             item => {
@@ -2072,10 +1909,7 @@ function renderAzkar(
         );
 
 
-    /* =====================================
-            CHECK VALID ITEMS
-    ===================================== */
-
+    
     if (
         validAzkar.length === 0
     ) {
@@ -2089,21 +1923,14 @@ function renderAzkar(
     }
 
 
-    /* =====================================
-            RENDER
-    ===================================== */
-
+  
     validAzkar.forEach(
         (
             item,
             index
         ) => {
 
-
-            /* =================================
-                    TEXT
-            ================================= */
-
+ 
             const text =
                 item.zekr ??
                 item.text ??
@@ -2113,11 +1940,7 @@ function renderAzkar(
                 item.title ??
                 "";
 
-
-            /* =================================
-                    REPEAT
-            ================================= */
-
+ 
             const repeat =
                 item.repeat ??
                 item.count ??
@@ -2125,11 +1948,7 @@ function renderAzkar(
                 item.times ??
                 "";
 
-
-            /* =================================
-                    SOURCE
-            ================================= */
-
+ 
             const source =
                 item.source ??
                 item.reference ??
@@ -2137,10 +1956,7 @@ function renderAzkar(
                 "";
 
 
-            /* =================================
-                    BENEFIT
-            ================================= */
-
+ 
             const bless =
                 item.bless ??
                 item.benefit ??
@@ -2149,10 +1965,7 @@ function renderAzkar(
                 "";
 
 
-            /* =================================
-                    ELEMENT
-            ================================= */
-
+         
             const zekrElement =
                 document.createElement(
                     "div"
@@ -2162,11 +1975,7 @@ function renderAzkar(
             zekrElement.className =
                 "zekr-item";
 
-
-            /* =================================
-                    HTML
-            ================================= */
-
+ 
             zekrElement.innerHTML = `
 
                 <div class="zekr-number">
@@ -2252,10 +2061,7 @@ function renderAzkar(
 }
 
 
-/* =========================================
-                LOADING
-========================================= */
-
+ 
 function showLoading() {
 
     if (loading) {
@@ -2321,10 +2127,7 @@ function showError() {
 }
 
 
-/* =========================================
-                UNAVAILABLE
-========================================= */
-
+ 
 function showUnavailable(
     title
 ) {
@@ -2404,11 +2207,7 @@ function showUnavailable(
 
 }
 
-
-/* =========================================
-                EVENTS
-========================================= */
-
+ 
 if (retryBtn) {
 
     retryBtn.addEventListener(
@@ -2454,10 +2253,6 @@ if (homeBtn) {
 
 }
 
-
-/* =========================================
-                START
-========================================= */
-
+ 
 loadCategories();
 
