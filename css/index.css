@@ -2098,22 +2098,8 @@ h6 {
   z-index: 1;
   isolation: isolate;
 }
-.dar-pillars-section::before {
-  content: "";
-  position: absolute;
-  top: -15%;
-  left: -43%;
-  width: 145%;
-  height: 100%;
-  background-image: url("../images/tq-bg1.webp");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  opacity: 0.4;
-  z-index: -1;
-  pointer-events: none;
-}
+
+
 .dar-section-heading {
   max-width: 700px;
   margin: 0 auto 65px;
